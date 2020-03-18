@@ -16,6 +16,7 @@ PlayerUtil contains the higher level functions and classes
 that main.py uses.
 '''
 
+from random import randint as rnd
 from time import sleep
 
 
@@ -31,18 +32,21 @@ class Hand:
     def getIsIn(self):
         return self.isIn
 
+    def setIsOpen(self, newVal):
+        # TODO - implement exceptions for bool
+        self.open = newVal
 
-class Player:
+    def setIsIn(self, newVal):
+        # TODO - implement exceptions for bool
+        self.isIn = newVal
 
-    def __init__(self, numberOfHands, handsArray):
-        self.numberOfHands = numberOfHands
-        self.handsArray = handsArray  # Hands array is a list of hands objects
+    def AIchooseCall(self):
+        handCall = rnd(0, 1)
+        if handCall == 0:
+            self.setIsOpen(False)
+        else:
+            self.setIsOpen(True)
 
-    def getNumberOfHands(self):
-        return self.numberOfHands
-
-    def getHandsArray(self):
-        return self.handsArray
 
 
 def shotgun(numberOfHands):
@@ -73,16 +77,25 @@ def getHandsInCircle():
     return number
 
 
-def countAndDisplay(gameArray):
+def countAndDisplay(gameArray, currentPosition):
     counter = 0
     for i in range(0, len(gameArray)):
         if gameArray[i].getIsOpen():
             counter += 1
     numberOpen = counter * 5
-    print("The number in the circle is " + str(numberOpen))
+
+    playerHand = ""
+    if gameArray[0].getIsOpen:
+        playerHand = "open"
+    else:
+        playerHand = "closed"
+
+    print("\nYou are " + playerHand)
+    print("The number in the circle is " + str(numberOpen) + "\t" + " It's hand " + str(currentPosition) + "'s turn")
     return numberOpen
 
 
+# TODO - Implement the full displayGame function by finishing the displayHands function
 '''
 def displayGame(gameArray, currentPosition):
     displayPositionLine(gameArray)
@@ -90,4 +103,20 @@ def displayGame(gameArray, currentPosition):
     displayBreakerLine(gameArray)
     displayHands(gameArray)
     
+    
 '''
+
+
+def call(gameArray):
+    # Setting your call
+    playerCall = input("Your call for the turn (Open or Closed) > ")
+    if playerCall == "Open":
+        gameArray[0].setIsOpen(True)
+    else:
+        gameArray[0].setIsOpen(False)
+
+    # Setting the AI calls
+    for i in range(0, len(gameArray)):
+        gameArray[i].AIchooseCall()
+
+    return gameArray

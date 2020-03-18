@@ -18,7 +18,9 @@ if __name__ == "__main__":
     currentPosition = 1
     initNumber = getHandsInCircle()
     gameArray = shotgun(initNumber)
-    displayGame(gameArray, currentPosition)
+    while len(gameArray) > 1:
+        countAndDisplay(gameArray, currentPosition)
+        call(gameArray)
 
 
 
