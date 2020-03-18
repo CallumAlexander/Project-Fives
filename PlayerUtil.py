@@ -26,12 +26,24 @@ class Hand:
         self.open = isOpen
         self.isIn = isIn
 
+    def getIsOpen(self):
+        return self.open
+
+    def getIsIn(self):
+        return self.isIn
+
 
 class Player:
 
     def __init__(self, numberOfHands, handsArray):
         self.numberOfHands = numberOfHands
         self.handsArray = handsArray  # Hands array is a list of hands objects
+
+    def getNumberOfHands(self):
+        return self.numberOfHands
+
+    def getHandsArray(self):
+        return self.handsArray
 
 
 def shotgun(numberOfHands):
