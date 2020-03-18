@@ -17,7 +17,6 @@ that main.py uses.
 '''
 
 from time import sleep
-from misc import *
 
 
 class Hand:
@@ -47,6 +46,7 @@ class Player:
 
 
 def shotgun(numberOfHands):
+    # Shotgun creates the game array and counts out the number of hands
     gameArray = []
     for i in range(0, numberOfHands):
         tempHand = Hand(False, True)
@@ -73,7 +73,21 @@ def getHandsInCircle():
     return number
 
 
-def displayHands(gameArray, currentPosition):
+def countAndDisplay(gameArray):
+    counter = 0
+    for i in range(0, len(gameArray)):
+        if gameArray[i].getIsOpen():
+            counter += 1
+    numberOpen = counter * 5
+    print("The number in the circle is " + str(numberOpen))
+    return numberOpen
+
+
+'''
+def displayGame(gameArray, currentPosition):
     displayPositionLine(gameArray)
     displayPositionMarker(gameArray, currentPosition)
     displayBreakerLine(gameArray)
+    displayHands(gameArray)
+    
+'''

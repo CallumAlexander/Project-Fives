@@ -18,7 +18,7 @@ if __name__ == "__main__":
     currentPosition = 1
     initNumber = getHandsInCircle()
     gameArray = shotgun(initNumber)
-    displayHands(gameArray, currentPosition)
+    displayGame(gameArray, currentPosition)
 
 
 

@@ -34,14 +34,15 @@ def displayBreakerLine(gameArray):
 def displayPositionMarker(gameArray, currentPosition):
     positionIndex = (currentPosition * 2)
     line = ""
-    for i in range(0, 2 * len(gameArray) + 1):  #this indexing in multiples of 2
+    for i in range(0, 2 * len(gameArray) + 1):  # this indexing in multiples of 2
         line += " "
     line = line[:positionIndex - 1] + "^" + line[positionIndex + 1:]
     print(line)
 
 
 def displayHands(gameArray):
+    # finding all the hands that are open
     indicesArray = []
     for i in range(0, len(gameArray)):
-        pass
-
+        if gameArray[i].getIsOpen():
+            indicesArray.append(i)
