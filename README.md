@@ -2,6 +2,8 @@
 #### by Cal Alexander
 An digital client to play Fives
 
+**_WARNING : NEVER EDIT THIS README IN GITHUB!!!_**
+
 ## Things I want to implement
 In no particular order
 - [ ] AI difficulties - i.e likelihood to mess up and call a non multiple of 5
@@ -23,12 +25,12 @@ Semantic version system
 
 [Unreleased]
 
-[0.0.2] - 18/03/20
+**[0.0.2]** - _18/03/20_
 
 Added
 - Simple way to display the game added
 
 
-[0.0.1] - 18/03/20
+**[0.0.1]** - _18/03/20_
 
 - initial commit
