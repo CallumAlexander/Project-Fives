@@ -13,15 +13,10 @@ Created on Tue Mar 17 19:25:14 2020
 
 from PlayerUtil import *
 
-
 if __name__ == "__main__":
-    currentPosition = 1
+    currentPosition = 0
     initNumber = getHandsInCircle()
     gameArray = shotgun(initNumber)
     while len(gameArray) > 1:
-        countAndDisplay(gameArray, currentPosition)
-        call(gameArray)
-
-
-
-# Main Loop
+        display(gameArray, currentPosition)
+        callHand(gameArray)

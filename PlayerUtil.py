@@ -48,6 +48,9 @@ class Hand:
             self.setIsOpen(True)
 
 
+# End of Class
+# ------------------------------------
+
 
 def shotgun(numberOfHands):
     # Shotgun creates the game array and counts out the number of hands
@@ -77,15 +80,10 @@ def getHandsInCircle():
     return number
 
 
-def countAndDisplay(gameArray, currentPosition):
-    counter = 0
-    for i in range(0, len(gameArray)):
-        if gameArray[i].getIsOpen():
-            counter += 1
-    numberOpen = counter * 5
-
+def display(gameArray, currentPosition):
+    numberOpen = count(gameArray)
     playerHand = ""
-    if gameArray[0].getIsOpen:
+    if gameArray[0].getIsOpen():
         playerHand = "open"
     else:
         playerHand = "closed"
@@ -102,12 +100,10 @@ def displayGame(gameArray, currentPosition):
     displayPositionMarker(gameArray, currentPosition)
     displayBreakerLine(gameArray)
     displayHands(gameArray)
-    
-    
 '''
 
 
-def call(gameArray):
+def callHand(gameArray):
     # Setting your call
     playerCall = input("Your call for the turn (Open or Closed) > ")
     if playerCall == "Open":
@@ -116,7 +112,25 @@ def call(gameArray):
         gameArray[0].setIsOpen(False)
 
     # Setting the AI calls
-    for i in range(0, len(gameArray)):
+    for i in range(1, len(gameArray)):
         gameArray[i].AIchooseCall()
 
     return gameArray
+
+
+def callNumber(gameArray, currentPosition):
+    playerIndex = 0
+    if currentPosition == playerIndex:
+        # TODO - validate player number call to only accept numbers of 5
+        playerNumberCall = input("Your number call for this turn")
+        numberOpen = count(gameArray)
+
+
+def count(gameArray):
+    counter = 0
+    for i in range(0, len(gameArray)):
+        if gameArray[i].getIsOpen():
+            counter += 1
+
+    numberOpen = counter * 5
+    return numberOpen
