@@ -11,7 +11,7 @@ Created on Tue Mar 17 19:25:14 2020
 @author: cal
 """
 
-from PlayerUtil import *
+from GameUtil import *
 
 if __name__ == "__main__":
     currentPosition = 0
